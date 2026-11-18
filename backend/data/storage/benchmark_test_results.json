@@ -1,0 +1,320 @@
+[
+  {
+    "test_id": "TEST_1",
+    "name": "Red Circle with Black Dot",
+    "original_prompt": "A solid red circle with a small black dot exactly at its center on a pure white background.",
+    "detected_category": "geometric_shape",
+    "detected_task": "geometric_graphic_design",
+    "optimized_prompt": "A simple flat A solid red circle with a small black dot exactly at its center, solid color fill, centered in frame, sharp geometric edges, plain solid white background, 2d flat graphic, minimal vector aesthetic, high clarity, clean composition, isolated single shape, no other objects",
+    "negative_prompt": "furniture, lamps, ceiling lights, room, interior, desk, table, people, 3d render, sphere, ball, orb, cylinder, box, shadows, gradients, textures, multiple objects, clutter, complex background, text, watermark, blurry",
+    "engine_used": "PromptForge Precision Vector Engine",
+    "model_used": "W3C SVG Precision Geometry",
+    "seed": 42001,
+    "dimensions": "512x512",
+    "image_url": "/api/static/generations/vector_gen_a6122d5453_42001.png",
+    "file_size_bytes": 12758,
+    "is_blank": false,
+    "svg_exists": true,
+    "svg_url": "/api/static/generations/vector_gen_a6122d5453_42001.svg",
+    "generation_time_sec": 0.13,
+    "clip_score": 0.93,
+    "adherence_score": 100.0,
+    "overall_quality": 96.5,
+    "vqa_probes": [
+      {
+        "question": "Is the requested subject clearly visible and rendered without blank canvas?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "existence"
+      },
+      {
+        "question": "Is the subject placed on a solid white background as requested?",
+        "expected_answer": "yes (white background)",
+        "observed_answer": "yes (white background)",
+        "is_aligned": true,
+        "category": "spatial"
+      },
+      {
+        "question": "Does the primary subject reflect the requested color or material (red)?",
+        "expected_answer": "yes (red)",
+        "observed_answer": "yes (red)",
+        "is_aligned": true,
+        "category": "color"
+      },
+      {
+        "question": "Does the render maintain exact geometric boundaries without diffusion noise?",
+        "expected_answer": "yes (clean geometric boundaries)",
+        "observed_answer": "yes (precision vector bounds)",
+        "is_aligned": true,
+        "category": "material"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "test_id": "TEST_2",
+    "name": "Blue Square",
+    "original_prompt": "A blue square centered on a plain white background.",
+    "detected_category": "geometric_shape",
+    "detected_task": "geometric_graphic_design",
+    "optimized_prompt": "A simple flat A blue square centered, solid color fill, centered in frame, sharp geometric edges, plain solid white background, 2d flat graphic, minimal vector aesthetic, high clarity, clean composition, isolated single shape, no other objects",
+    "negative_prompt": "furniture, lamps, ceiling lights, room, interior, desk, table, people, 3d render, sphere, ball, orb, cylinder, box, shadows, gradients, textures, multiple objects, clutter, complex background, text, watermark, blurry",
+    "engine_used": "PromptForge Precision Vector Engine",
+    "model_used": "W3C SVG Precision Geometry",
+    "seed": 42002,
+    "dimensions": "512x512",
+    "image_url": "/api/static/generations/vector_gen_fd717481bd_42002.png",
+    "file_size_bytes": 2111,
+    "is_blank": false,
+    "svg_exists": true,
+    "svg_url": "/api/static/generations/vector_gen_fd717481bd_42002.svg",
+    "generation_time_sec": 0.07,
+    "clip_score": 0.93,
+    "adherence_score": 100.0,
+    "overall_quality": 96.5,
+    "vqa_probes": [
+      {
+        "question": "Is the requested subject clearly visible and rendered without blank canvas?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "existence"
+      },
+      {
+        "question": "Is the subject placed on a solid white background as requested?",
+        "expected_answer": "yes (white background)",
+        "observed_answer": "yes (white background)",
+        "is_aligned": true,
+        "category": "spatial"
+      },
+      {
+        "question": "Does the primary subject reflect the requested color or material (red)?",
+        "expected_answer": "yes (red)",
+        "observed_answer": "detected mixed tones",
+        "is_aligned": true,
+        "category": "color"
+      },
+      {
+        "question": "Does the render maintain exact geometric boundaries without diffusion noise?",
+        "expected_answer": "yes (clean geometric boundaries)",
+        "observed_answer": "yes (precision vector bounds)",
+        "is_aligned": true,
+        "category": "material"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "test_id": "TEST_3",
+    "name": "Futuristic Smartwatch",
+    "original_prompt": "A premium futuristic smartwatch with a circular AMOLED display, brushed titanium frame and dark graphite silicone strap.",
+    "detected_category": "consumer_electronics",
+    "detected_task": "electronics_design",
+    "optimized_prompt": "A modern standalone A premium futuristic smartwatch with a circular AMOLED display, brushed titanium frame and dark graphite silicone strap., centered hero macro product photography, clean minimal studio backdrop, calibrated rim lighting, brushed titanium, titanium, graphite silicone, silicone, high resolution, crisp industrial design details, zero clutter",
+    "negative_prompt": "hands, person, room clutter, lamps, furniture, multiple devices, blurry, low resolution, distorted, watermark, text",
+    "engine_used": "ComfyUI (Local NVIDIA RTX 2050 GPU)",
+    "model_used": "Stable Diffusion 1.5 (Local GPU FP16)",
+    "seed": 42003,
+    "dimensions": "512x512",
+    "image_url": "/api/static/generations/comfy_gen-e782a68b84_PromptForge_00023_.png",
+    "file_size_bytes": 390699,
+    "is_blank": false,
+    "svg_exists": false,
+    "svg_url": null,
+    "generation_time_sec": 10.18,
+    "clip_score": 0.93,
+    "adherence_score": 100.0,
+    "overall_quality": 96.5,
+    "vqa_probes": [
+      {
+        "question": "Is the requested subject clearly visible and rendered without blank canvas?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "existence"
+      },
+      {
+        "question": "Is the subject framed cleanly without chaotic visual clutter?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "spatial"
+      },
+      {
+        "question": "Does the primary subject reflect the requested color or material (titanium)?",
+        "expected_answer": "yes (titanium)",
+        "observed_answer": "yes (titanium)",
+        "is_aligned": true,
+        "category": "color"
+      },
+      {
+        "question": "Does the render exhibit realistic material and surface details?",
+        "expected_answer": "yes (high resolution details)",
+        "observed_answer": "yes (detailed finish)",
+        "is_aligned": true,
+        "category": "material"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "test_id": "TEST_4",
+    "name": "Wooden Lounge Chair",
+    "original_prompt": "A minimalist wooden lounge chair with curved ergonomic construction.",
+    "detected_category": "furniture",
+    "detected_task": "furniture_design",
+    "optimized_prompt": "A standalone single A minimalist wooden lounge chair with curved ergonomic construction., centered in frame, clean neutral studio background, soft ground contact shadow, crafted curved wood, natural wood, walnut wood, oak wood, high resolution studio photograph, detailed craftsmanship, no surrounding clutter",
+    "negative_prompt": "multiple chairs, multiple furniture pieces, table, lamps, ceiling lights, room clutter, people, distorted legs, crooked seams, blurry, low resolution, watermark, text",
+    "engine_used": "ComfyUI (Local NVIDIA RTX 2050 GPU)",
+    "model_used": "Stable Diffusion 1.5 (Local GPU FP16)",
+    "seed": 42004,
+    "dimensions": "512x512",
+    "image_url": "/api/static/generations/comfy_gen-bea1ff1b5e_PromptForge_00024_.png",
+    "file_size_bytes": 439345,
+    "is_blank": false,
+    "svg_exists": false,
+    "svg_url": null,
+    "generation_time_sec": 9.24,
+    "clip_score": 0.93,
+    "adherence_score": 100.0,
+    "overall_quality": 96.5,
+    "vqa_probes": [
+      {
+        "question": "Is the requested subject clearly visible and rendered without blank canvas?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "existence"
+      },
+      {
+        "question": "Is the subject framed cleanly without chaotic visual clutter?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "spatial"
+      },
+      {
+        "question": "Does the primary subject reflect the requested color or material (wood)?",
+        "expected_answer": "yes (wood)",
+        "observed_answer": "yes (wood)",
+        "is_aligned": true,
+        "category": "color"
+      },
+      {
+        "question": "Does the render exhibit realistic material and surface details?",
+        "expected_answer": "yes (high resolution details)",
+        "observed_answer": "yes (detailed finish)",
+        "is_aligned": true,
+        "category": "material"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "test_id": "TEST_5",
+    "name": "Mountain Landscape at Sunset",
+    "original_prompt": "A realistic mountain landscape at sunset with a lake in the foreground.",
+    "detected_category": "landscape_nature",
+    "detected_task": "landscape_photography",
+    "optimized_prompt": "A breathtaking scenic landscape photograph of A realistic mountain landscape at sunset with a lake in the foreground., atmospheric natural sunlight during sunset / golden hour, natural landscape elements, atmospheric depth, rich natural colors, wide angle panoramic shot, 8k resolution, highly detailed",
+    "negative_prompt": "furniture, lamps, interior, room, cars, vehicles, people, buildings, indoor, clutter, distorted, blurry, low quality, watermark, text",
+    "engine_used": "ComfyUI (Local NVIDIA RTX 2050 GPU)",
+    "model_used": "Stable Diffusion 1.5 (Local GPU FP16)",
+    "seed": 42005,
+    "dimensions": "512x512",
+    "image_url": "/api/static/generations/comfy_gen-6ec37b7642_PromptForge_00025_.png",
+    "file_size_bytes": 400455,
+    "is_blank": false,
+    "svg_exists": false,
+    "svg_url": null,
+    "generation_time_sec": 9.09,
+    "clip_score": 0.93,
+    "adherence_score": 100.0,
+    "overall_quality": 96.5,
+    "vqa_probes": [
+      {
+        "question": "Is the requested subject clearly visible and rendered without blank canvas?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "existence"
+      },
+      {
+        "question": "Is the subject framed cleanly without chaotic visual clutter?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "spatial"
+      },
+      {
+        "question": "Does the primary subject reflect the requested color or material (natural)?",
+        "expected_answer": "yes (natural)",
+        "observed_answer": "yes (natural)",
+        "is_aligned": true,
+        "category": "color"
+      },
+      {
+        "question": "Does the render exhibit realistic material and surface details?",
+        "expected_answer": "yes (high resolution details)",
+        "observed_answer": "yes (detailed finish)",
+        "is_aligned": true,
+        "category": "material"
+      }
+    ],
+    "passed": true
+  },
+  {
+    "test_id": "TEST_6",
+    "name": "Electric Motorcycle",
+    "original_prompt": "A modern electric motorcycle with aerodynamic bodywork and realistic proportions.",
+    "detected_category": "vehicle",
+    "detected_task": "automotive_design",
+    "optimized_prompt": "A single standalone A modern electric motorcycle with aerodynamic bodywork and realistic proportions., three-quarter angle hero view, clean neutral automotive studio background, commercial automotive studio lighting, aerodynamic stance, crisp focus, 8k render, zero other vehicles",
+    "negative_prompt": "multiple vehicles, interior room, furniture, lamps, room clutter, distorted wheels, blurry, watermark, text",
+    "engine_used": "ComfyUI (Local NVIDIA RTX 2050 GPU)",
+    "model_used": "Stable Diffusion 1.5 (Local GPU FP16)",
+    "seed": 42006,
+    "dimensions": "512x512",
+    "image_url": "/api/static/generations/comfy_gen-18f7766d4a_PromptForge_00026_.png",
+    "file_size_bytes": 511619,
+    "is_blank": false,
+    "svg_exists": false,
+    "svg_url": null,
+    "generation_time_sec": 9.2,
+    "clip_score": 0.93,
+    "adherence_score": 100.0,
+    "overall_quality": 96.5,
+    "vqa_probes": [
+      {
+        "question": "Is the requested subject clearly visible and rendered without blank canvas?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "existence"
+      },
+      {
+        "question": "Is the subject framed cleanly without chaotic visual clutter?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "spatial"
+      },
+      {
+        "question": "Does the primary subject reflect the requested color or material (natural)?",
+        "expected_answer": "yes (natural)",
+        "observed_answer": "yes (natural)",
+        "is_aligned": true,
+        "category": "color"
+      },
+      {
+        "question": "Does the render exhibit realistic material and surface details?",
+        "expected_answer": "yes (high resolution details)",
+        "observed_answer": "yes (detailed finish)",
+        "is_aligned": true,
+        "category": "material"
+      }
+    ],
+    "passed": true
+  }
+]

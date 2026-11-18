@@ -10,8 +10,11 @@ from backend.app.agents.task_understanding import task_understanding_agent, Task
 
 class PromptRefinementAgent:
     """
-    Agent 2: Inspiration and Prompt Refinement Agent
-    Hierarchically organizes Macro (subject/form/environment) and Micro (materials/textures/lighting).
+    Agent 2: Progressive Prompt Refinement Agent
+    Inspired by:
+    - Xiong et al. (2024): Enhancing Image Generation Fidelity via Progressive Prompts
+    - Na et al. (2024): Prompt Disambiguation for Text-to-Image Generation
+    Hierarchically organizes Macro (subject/framing) and Micro (materials/textures/lighting).
     Strictly preserves the user's requested subject, shape, color, background, and object count.
     Never injects automotive, interior, or industrial boilerplate into unrelated concepts.
     """
@@ -31,13 +34,12 @@ class PromptRefinementAgent:
         subject = tu.primary_subject
 
         # Determine colors and background cues
-        color_str = ", ".join(tu.colors) if tu.colors and tu.colors != ["natural tones"] else ""
         bg_cue = "plain solid white background"
         if "black background" in orig_lower:
             bg_cue = "plain solid black background"
         elif "white background" in orig_lower:
             bg_cue = "plain solid white background"
-        elif "neutral background" in orig_lower:
+        elif "neutral background" in orig_lower or "plain background" in orig_lower:
             bg_cue = "clean neutral background"
 
         # 1. Geometric & Simple Shape Refinement
@@ -57,6 +59,11 @@ class PromptRefinementAgent:
                     title="Pure Geometric Silhouette",
                     positive_prompt=f"Centered single {subject}, pure solid color, crisp edges, {bg_cue}, graphic icon style, high contrast, zero shadows, no other objects",
                     description="High-contrast isolated geometric silhouette."
+                ),
+                PromptAlternative(
+                    title="High-Precision Blueprint Icon",
+                    positive_prompt=f"Precise mathematical vector graphic of {subject}, centered on {bg_cue}, razor sharp boundaries, flat graphic design, zero noise",
+                    description="Mathematical precision graphic styling."
                 )
             ]
 
@@ -77,6 +84,11 @@ class PromptRefinementAgent:
                     title="Cinematic Golden Hour",
                     positive_prompt=f"Cinematic wide-angle nature photography of {subject}, dramatic atmospheric lighting, natural horizon, Hasselblad clarity, 8k resolution",
                     description="Atmospheric cinematic treatment emphasizing natural environmental light."
+                ),
+                PromptAlternative(
+                    title="Pristine Natural Panorama",
+                    positive_prompt=f"Pristine fine-art nature landscape of {subject}, crystal clear foreground and horizon, serene natural atmosphere, realistic daylight",
+                    description="Fine-art landscape photography with natural clarity."
                 )
             ]
 
@@ -98,6 +110,11 @@ class PromptRefinementAgent:
                     title="Architectural Minimalist",
                     positive_prompt=f"Architectural minimalist studio concept of single {subject}, neutral cyclorama background, soft overcast diffused light, immaculate finish",
                     description="Clean, stripped-down visual focus with honest materials."
+                ),
+                PromptAlternative(
+                    title="Craftsmanship Detail",
+                    positive_prompt=f"Master crafted single {subject}, elegant ergonomic curves, authentic wood grain texture, professional studio illumination, centered",
+                    description="Emphasizes tactile materials and finejoinery details."
                 )
             ]
 
@@ -119,11 +136,16 @@ class PromptRefinementAgent:
                     title="Clean Minimalist Studio",
                     positive_prompt=f"Ultra-clean minimalist studio photograph of {subject}, soft diffused light, neutral infinity background, impeccable finish",
                     description="Neutral studio focus emphasizing industrial design form."
+                ),
+                PromptAlternative(
+                    title="Technical Precision Concept",
+                    positive_prompt=f"High-end industrial design prototype of {subject}, crisp bezel lines, illuminated AMOLED display, premium tactile finish, studio lighting",
+                    description="Emphasizes precision engineering and electronic interface."
                 )
             ]
 
         # 5. Vehicle Refinement
-        elif cat == "vehicle":
+        elif cat in ["vehicle", "electric_motorcycle"]:
             high_level = f"A high-performance standalone {subject}, three-quarter angle hero view"
             materials_str = ", ".join(tu.materials)
             low_level = f"aerodynamic bodywork, {materials_str}, commercial automotive studio lighting, neutral background, 8k render"
@@ -140,10 +162,15 @@ class PromptRefinementAgent:
                     title="Cinematic Track Stance",
                     positive_prompt=f"Cinematic automotive capture of single {subject}, clean asphalt surface, dramatic rim light, 8k resolution, crisp focus",
                     description="Dramatic commercial capture with crisp body lines."
+                ),
+                PromptAlternative(
+                    title="Aerodynamic Prototype",
+                    positive_prompt=f"Futuristic aerodynamic prototype of single {subject}, wind-tunnel sculpted bodywork, premium performance materials, studio key light",
+                    description="Highlights aerodynamic sculpting and lightweight components."
                 )
             ]
 
-        # 6. Architecture & General Concept Refinement
+        # 6. Architecture
         elif cat == "architecture":
             high_level = f"An architectural perspective of {subject}"
             low_level = f"{tu.lighting}, {', '.join(tu.materials)}, natural landscaping integration, 8k architectural render"
@@ -155,6 +182,16 @@ class PromptRefinementAgent:
                     title="Architectural Perspective",
                     positive_prompt=full_positive,
                     description="Balanced architectural framing with natural landscaping."
+                ),
+                PromptAlternative(
+                    title="Modernist Twilight View",
+                    positive_prompt=f"Twilight architectural photograph of {subject}, illuminated interior glazing, warm ambient landscape lighting, 8k clarity",
+                    description="Twilight view highlighting interior luminescence and exterior facade."
+                ),
+                PromptAlternative(
+                    title="Daylight Elevation",
+                    positive_prompt=f"Clean daylight exterior render of {subject}, crisp geometric proportions, realistic landscaping, architectural digest style",
+                    description="Bright daytime elevation view."
                 )
             ]
 
@@ -169,6 +206,16 @@ class PromptRefinementAgent:
                     title="Clean Representation",
                     positive_prompt=full_positive,
                     description="Faithful centered representation preserving all prompt details."
+                ),
+                PromptAlternative(
+                    title="Studio Showcase",
+                    positive_prompt=f"Studio showcase of {subject}, calibrated soft illumination, neutral backdrop, high sharpness, centered",
+                    description="Balanced studio lighting setup."
+                ),
+                PromptAlternative(
+                    title="Minimalist Framing",
+                    positive_prompt=f"Minimalist isolated depiction of {subject}, clean negative space, razor-sharp focus, immaculate finish",
+                    description="Emphasizes simplicity and core subject presence."
                 )
             ]
 

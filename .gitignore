@@ -58,6 +58,8 @@ researchpapers
 backend/data/storage/generations/*.png
 backend/data/storage/generations/*.jpg
 backend/data/storage/generations/*.jpeg
+backend/data/storage/generations/*.svg
+backend/scratch/
 backend/data/uploads/*
 !backend/data/storage/generations/.gitkeep
 !backend/data/uploads/.gitkeep

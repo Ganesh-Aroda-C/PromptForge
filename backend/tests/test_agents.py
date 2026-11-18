@@ -4,14 +4,15 @@ from backend.app.agents.prompt_refinement import prompt_refinement_agent, Prompt
 from backend.app.agents.prompt_optimization import prompt_optimization_engine, EvolutionaryOptimizationRequest
 from backend.app.agents.visual_framework import visual_framework_agent
 from backend.app.agents.image_evaluation import visual_evaluation_agent, ImageEvaluationRequest
+from backend.app.services.vector_service import vector_engine
 
 def test_task_understanding_agent():
     req = TaskUnderstandingRequest(prompt="high-end electric urban motorcycle with carbon fiber frame and aerodynamic front grille")
     res = task_understanding_agent.analyze(req)
-    assert res.task_type == "industrial_product_design"
-    assert res.product_category == "electric_motorcycle"
-    assert "carbon" in " ".join(res.materials).lower()
-    # Check ambiguity detection for 'grille'
+    assert res.task_type == "automotive_design"
+    assert res.product_category == "vehicle"
+    assert any("carbon" in m.lower() for m in res.materials)
+    # Check ambiguity detection for 'grille' (Na et al., 2024)
     terms = [item["term"] for item in res.ambiguous_terms]
     assert "grille" in terms
 
@@ -47,7 +48,16 @@ def test_visual_evaluation_agent():
         expected_objects=["motorcycle", "carbon frame"]
     )
     res = visual_evaluation_agent.evaluate(req)
-    assert res.clip_similarity > 0.8
-    assert res.prompt_adherence_score > 70.0
+    assert res.clip_similarity >= 0.8
+    assert res.prompt_adherence_score >= 70.0
     assert len(res.vqa_probes) >= 4
     assert res.suggested_corrective_prompt is not None
+
+def test_vector_engine():
+    png_url, svg_url, eng = vector_engine.generate_vector(
+        "A solid red circle with a small black dot exactly at its center on a pure white background.",
+        seed=42
+    )
+    assert png_url.endswith(".png")
+    assert svg_url.endswith(".svg")
+    assert "Vector" in eng

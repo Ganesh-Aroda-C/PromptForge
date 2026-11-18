@@ -201,6 +201,19 @@ export const CreateStudioPage: React.FC = () => {
     }
   };
 
+  // Download Vector SVG File
+  const handleDownloadSvg = (img: GeneratedImage, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    const svgUrl = img.image_url.replace(/\.png$/, '.svg');
+    const link = document.createElement('a');
+    link.href = svgUrl;
+    link.download = `PromptForge-${img.generation_id}.svg`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showToast('SVG vector downloaded');
+  };
+
   // Save to Projects
   const handleSaveToProject = async (img: GeneratedImage, e?: React.MouseEvent) => {
     if (e) e.stopPropagation();
@@ -566,6 +579,17 @@ export const CreateStudioPage: React.FC = () => {
                   </div>
 
                   <div className="flex items-center gap-1.5 shrink-0">
+                    {img.image_url.includes('vector_') && (
+                      <button
+                        type="button"
+                        onClick={(e) => handleDownloadSvg(img, e)}
+                        title="Download SVG Vector"
+                        className="p-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 transition-all cursor-pointer text-[10px] font-mono font-bold"
+                      >
+                        SVG
+                      </button>
+                    )}
+
                     <button
                       type="button"
                       onClick={(e) => handleSaveToProject(img, e)}
@@ -582,7 +606,7 @@ export const CreateStudioPage: React.FC = () => {
                     <button
                       type="button"
                       onClick={(e) => handleDownload(img, e)}
-                      title="Download Design"
+                      title="Download PNG Design"
                       className="p-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.1] text-gray-300 hover:text-white transition-all cursor-pointer"
                     >
                       <Download className="w-4 h-4" />

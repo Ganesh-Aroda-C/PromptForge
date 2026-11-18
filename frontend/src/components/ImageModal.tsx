@@ -39,6 +39,16 @@ export const ImageModal: React.FC<ImageModalProps> = ({ image, onClose }) => {
     }
   };
 
+  const handleDownloadSvg = () => {
+    const svgUrl = image.image_url.replace(/\.png$/, '.svg');
+    const link = document.createElement('a');
+    link.href = svgUrl;
+    link.download = `PromptForge-${image.generation_id}.svg`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const handleSave = async () => {
     setSaved(true);
     try {
@@ -146,8 +156,19 @@ export const ImageModal: React.FC<ImageModalProps> = ({ image, onClose }) => {
                 className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-medium text-xs shadow-lg shadow-cyan-500/20 hover:opacity-95 transition-all"
               >
                 <Download className="w-4 h-4" />
-                <span>Download Design</span>
+                <span>Download PNG</span>
               </button>
+
+              {image.image_url.includes('vector_') && (
+                <button
+                  onClick={handleDownloadSvg}
+                  className="py-2.5 px-3 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-cyan-300 font-medium text-xs transition-colors border border-cyan-500/30 flex items-center gap-1.5"
+                  title="Download Scalable Vector Graphics"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>SVG</span>
+                </button>
+              )}
 
               <button
                 onClick={handleSave}
