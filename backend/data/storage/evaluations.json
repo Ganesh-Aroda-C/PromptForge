@@ -1,0 +1,226 @@
+[
+  {
+    "evaluation_id": "eval-bb64ba4479",
+    "generation_id": "gen-seed-01",
+    "clip_similarity": 0.91,
+    "prompt_adherence_score": 100.0,
+    "overall_quality_score": 95.5,
+    "detected_objects": [
+      "chassis / frame",
+      "lighting highlights",
+      "surface texture",
+      "camera perspective",
+      "clean backdrop"
+    ],
+    "missing_requirements": [],
+    "vqa_probes": [
+      {
+        "question": "Is there a product chassis clearly visible in the image?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "existence"
+      },
+      {
+        "question": "Is there a material finish clearly visible in the image?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "existence"
+      },
+      {
+        "question": "What is the dominant surface color finish of the subject?",
+        "expected_answer": "gray",
+        "observed_answer": "gray",
+        "is_aligned": true,
+        "category": "color"
+      },
+      {
+        "question": "Does the product exhibit realistic material textures and surface finishes?",
+        "expected_answer": "yes (carbon fiber)",
+        "observed_answer": "yes, photorealistic carbon fiber",
+        "is_aligned": true,
+        "category": "material"
+      },
+      {
+        "question": "Is the product placed in a clean, professional studio environment?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "spatial"
+      }
+    ],
+    "discrepancy_summary": "Strong semantic and structural alignment detected across all probe questions.",
+    "suggested_corrective_prompt": "high-end minimalist electric urban motorcycle, lightweight matte carbon fiber monocoque frame, hub-mounted brushless motor, integrated LED strip headlamp, premium Brembo hydraulic disc brakes, sleek aerodynamic stance, clean studio lighting on neutral gray backdrop, 8k resolution photorealistic 3D render, enhance rim lighting on silhouette edges, anchor framing with 85mm prime lens perspective.",
+    "evaluation_status": "verified",
+    "created_at": "2026-11-17T04:50:27.904072"
+  },
+  {
+    "evaluation_id": "eval-9584b71584",
+    "generation_id": "gen-seed-01",
+    "clip_similarity": 0.91,
+    "prompt_adherence_score": 100.0,
+    "overall_quality_score": 95.5,
+    "detected_objects": [
+      "chassis / frame",
+      "lighting highlights",
+      "surface texture",
+      "camera perspective",
+      "clean backdrop"
+    ],
+    "missing_requirements": [],
+    "vqa_probes": [
+      {
+        "question": "Is there a product chassis clearly visible in the image?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "existence"
+      },
+      {
+        "question": "Is there a material finish clearly visible in the image?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "existence"
+      },
+      {
+        "question": "What is the dominant surface color finish of the subject?",
+        "expected_answer": "gray",
+        "observed_answer": "gray",
+        "is_aligned": true,
+        "category": "color"
+      },
+      {
+        "question": "Does the product exhibit realistic material textures and surface finishes?",
+        "expected_answer": "yes (carbon fiber)",
+        "observed_answer": "yes, photorealistic carbon fiber",
+        "is_aligned": true,
+        "category": "material"
+      },
+      {
+        "question": "Is the product placed in a clean, professional studio environment?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "spatial"
+      }
+    ],
+    "discrepancy_summary": "Strong semantic and structural alignment detected across all probe questions.",
+    "suggested_corrective_prompt": "high-end minimalist electric urban motorcycle, lightweight matte carbon fiber monocoque frame, hub-mounted brushless motor, integrated LED strip headlamp, premium Brembo hydraulic disc brakes, sleek aerodynamic stance, clean studio lighting on neutral gray backdrop, 8k resolution photorealistic 3D render, enhance rim lighting on silhouette edges, anchor framing with 85mm prime lens perspective.",
+    "evaluation_status": "verified",
+    "created_at": "2026-11-17T04:50:27.909432"
+  },
+  {
+    "evaluation_id": "eval-3f6c167341",
+    "generation_id": "gen-seed-01",
+    "clip_similarity": 0.91,
+    "prompt_adherence_score": 100.0,
+    "overall_quality_score": 95.5,
+    "detected_objects": [
+      "chassis / frame",
+      "lighting highlights",
+      "surface texture",
+      "camera perspective",
+      "clean backdrop"
+    ],
+    "missing_requirements": [],
+    "vqa_probes": [
+      {
+        "question": "Is there a product chassis clearly visible in the image?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "existence"
+      },
+      {
+        "question": "Is there a material finish clearly visible in the image?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "existence"
+      },
+      {
+        "question": "What is the dominant surface color finish of the subject?",
+        "expected_answer": "gray",
+        "observed_answer": "gray",
+        "is_aligned": true,
+        "category": "color"
+      },
+      {
+        "question": "Does the product exhibit realistic material textures and surface finishes?",
+        "expected_answer": "yes (carbon fiber)",
+        "observed_answer": "yes, photorealistic carbon fiber",
+        "is_aligned": true,
+        "category": "material"
+      },
+      {
+        "question": "Is the product placed in a clean, professional studio environment?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "spatial"
+      }
+    ],
+    "discrepancy_summary": "Strong semantic and structural alignment detected across all probe questions.",
+    "suggested_corrective_prompt": "high-end minimalist electric urban motorcycle, lightweight matte carbon fiber monocoque frame, hub-mounted brushless motor, integrated LED strip headlamp, premium Brembo hydraulic disc brakes, sleek aerodynamic stance, clean studio lighting on neutral gray backdrop, 8k resolution photorealistic 3D render, enhance rim lighting on silhouette edges, anchor framing with 85mm prime lens perspective.",
+    "evaluation_status": "verified",
+    "created_at": "2026-11-17T05:14:02.178582"
+  },
+  {
+    "evaluation_id": "eval-916288032e",
+    "generation_id": "gen-seed-01",
+    "clip_similarity": 0.91,
+    "prompt_adherence_score": 100.0,
+    "overall_quality_score": 95.5,
+    "detected_objects": [
+      "chassis / frame",
+      "lighting highlights",
+      "surface texture",
+      "camera perspective",
+      "clean backdrop"
+    ],
+    "missing_requirements": [],
+    "vqa_probes": [
+      {
+        "question": "Is there a product chassis clearly visible in the image?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "existence"
+      },
+      {
+        "question": "Is there a material finish clearly visible in the image?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "existence"
+      },
+      {
+        "question": "What is the dominant surface color finish of the subject?",
+        "expected_answer": "gray",
+        "observed_answer": "gray",
+        "is_aligned": true,
+        "category": "color"
+      },
+      {
+        "question": "Does the product exhibit realistic material textures and surface finishes?",
+        "expected_answer": "yes (carbon fiber)",
+        "observed_answer": "yes, photorealistic carbon fiber",
+        "is_aligned": true,
+        "category": "material"
+      },
+      {
+        "question": "Is the product placed in a clean, professional studio environment?",
+        "expected_answer": "yes",
+        "observed_answer": "yes",
+        "is_aligned": true,
+        "category": "spatial"
+      }
+    ],
+    "discrepancy_summary": "Strong semantic and structural alignment detected across all probe questions.",
+    "suggested_corrective_prompt": "high-end minimalist electric urban motorcycle, lightweight matte carbon fiber monocoque frame, hub-mounted brushless motor, integrated LED strip headlamp, premium Brembo hydraulic disc brakes, sleek aerodynamic stance, clean studio lighting on neutral gray backdrop, 8k resolution photorealistic 3D render, enhance rim lighting on silhouette edges, anchor framing with 85mm prime lens perspective.",
+    "evaluation_status": "verified",
+    "created_at": "2026-11-17T05:14:02.195447"
+  }
+]
