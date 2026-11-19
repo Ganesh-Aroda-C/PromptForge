@@ -112,7 +112,7 @@ class ImageGenerationAgent:
                         seed=candidate_seed,
                         width=request.width or 512,
                         height=request.height or 512,
-                        steps=request.num_inference_steps or 20,
+                        steps=request.num_inference_steps or 28,
                         timeout=90
                     )
                     if comfy_res:

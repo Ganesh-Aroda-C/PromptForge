@@ -44,13 +44,13 @@ class ComfyUIService:
         seed: int = 42,
         width: int = 512,
         height: int = 512,
-        steps: int = 25,
+        steps: int = 28,
         cfg: float = 7.5,
         model_name: Optional[str] = None
     ) -> Dict[str, Any]:
         """
         Constructs standard Stable Diffusion 1.5 execution graph for ComfyUI.
-        Optimized for 4GB VRAM (NVIDIA RTX 2050) using 512x512 resolution and FP16.
+        Optimized for 4GB VRAM (NVIDIA RTX 2050) using 512x512 resolution, DPMPP_2M Karras, and FP16.
         """
         available = self.get_available_checkpoints()
         ckpt = model_name if (model_name and model_name in available) else (available[0] if available else "v1-5-pruned-emaonly.safetensors")
@@ -61,7 +61,7 @@ class ComfyUIService:
                     "seed": seed,
                     "steps": steps,
                     "cfg": cfg,
-                    "sampler_name": "euler_ancestral",
+                    "sampler_name": "dpmpp_2m",
                     "scheduler": "karras",
                     "denoise": 1.0,
                     "model": ["4", 0],

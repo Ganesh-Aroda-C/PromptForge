@@ -178,7 +178,7 @@ class PromptEnhancementEngine:
 
         # 5. Build Positive Prompt Components
         breakdown = {
-            "subject": f"A standalone, high-precision {data['core_subject']}",
+            "subject": data["core_subject"],
             "mechanical_structure": data["mechanical_structure"],
             "materials": mat_text,
             "geometry_proportions": geom_text,
@@ -216,8 +216,8 @@ class PromptEnhancementEngine:
         )
         domain_exclusions = data.get("negative_exclusions", "")
         negative_prompt_clauses = [
-            general_defects,
             domain_exclusions,
+            general_defects,
             style_neg
         ]
 
@@ -240,11 +240,11 @@ class PromptEnhancementEngine:
             detected_subject=detected_subject
         )
 
-        # 8. Dynamic Recommended Settings tailored for Stable Diffusion 1.5
+        # 8. Dynamic Recommended Settings tailored for Stable Diffusion 1.5 (DPMPP_2M + Karras on RTX 2050)
         recommended_settings = {
-            "steps": 25,
+            "steps": 28,
             "cfg_scale": 7.5,
-            "sampler_name": "euler_ancestral",
+            "sampler_name": "dpmpp_2m",
             "scheduler": "karras",
             "width": 512,
             "height": 512,
