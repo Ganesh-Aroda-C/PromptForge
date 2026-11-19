@@ -9,13 +9,40 @@ from backend.app.models.schemas import (
     PromptRefinementRequest,
     PromptRefinementResponse,
     EvolutionaryOptimizationRequest,
-    EvolutionaryOptimizationResponse
+    EvolutionaryOptimizationResponse,
+    PromptEnhancementRequest,
+    PromptEnhancementResponse
 )
 from backend.app.agents.task_understanding import task_understanding_agent
 from backend.app.agents.prompt_refinement import prompt_refinement_agent
 from backend.app.agents.prompt_optimization import prompt_optimization_engine
+from backend.app.agents.prompt_enhancer import prompt_enhancement_engine
 
 router = APIRouter(prefix="/prompts", tags=["Prompts & AI Pipeline"])
+
+@router.post("/enhance", response_model=PromptEnhancementResponse)
+async def enhance_prompt(request: PromptEnhancementRequest):
+    """
+    Intelligent Prompt Enhancement Engine:
+    Converts simple user descriptions into comprehensive, engineering-detailed
+    positive prompts and tailored negative prompts for Stable Diffusion 1.5.
+    """
+    result = prompt_enhancement_engine.enhance(
+        raw_prompt=request.prompt,
+        style_preset_name=request.visual_style or "Photorealistic 3D",
+        category_hint=request.category
+    )
+    return PromptEnhancementResponse(
+        original_prompt=result.original_prompt,
+        enhanced_positive_prompt=result.enhanced_positive_prompt,
+        enhanced_negative_prompt=result.enhanced_negative_prompt,
+        detected_subject=result.detected_subject,
+        detected_domain=result.detected_domain,
+        extracted_attributes=result.extracted_attributes,
+        breakdown=result.breakdown,
+        validation_report=result.validation_report.model_dump(),
+        recommended_settings=result.recommended_settings
+    )
 
 @router.post("/understand", response_model=TaskUnderstandingResponse)
 async def understand_task(request: TaskUnderstandingRequest):

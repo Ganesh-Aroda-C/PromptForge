@@ -22,6 +22,7 @@ import { ImageModal } from '../components/ImageModal';
 
 const CATEGORIES = [
   { id: 'Auto', label: 'Auto Detect (General)', backendCat: 'auto' },
+  { id: 'Industrial', label: 'Industrial Equipment', backendCat: 'industrial_equipment' },
   { id: 'Shapes', label: 'Shapes & Graphics', backendCat: 'geometric_shape' },
   { id: 'Electronics', label: 'Electronics', backendCat: 'consumer_electronics' },
   { id: 'Furniture', label: 'Furniture', backendCat: 'furniture' },
@@ -39,6 +40,7 @@ const STYLES = [
 ];
 
 const SUGGESTIONS = [
+  { label: '⚙️ Industrial CNC Machine', prompt: 'Design an industrial CNC machine.', cat: 'Industrial' },
   { label: '🔴 Simple Red Circle', prompt: 'Generate a simple red circle on a white background.', cat: 'Shapes' },
   { label: '🟦 Simple Blue Square', prompt: 'Generate a blue square on a white background.', cat: 'Shapes' },
   { label: '⌚ Titanium Smartwatch', prompt: 'Generate a futuristic smartwatch with a circular display and titanium body.', cat: 'Electronics' },
@@ -126,17 +128,29 @@ export const CreateStudioPage: React.FC = () => {
 
       if (!customOptimizedPrompt.trim()) {
         try {
-          const refined = await api.refinePrompt(textToUse, selectedStyle, backendCat);
-          if (refined && refined.full_positive_prompt) {
-            finalPrompt = refined.full_positive_prompt;
-            finalNegative = refined.negative_prompt;
-            detectedSubject = refined.detected_objects?.join(', ') || textToUse;
-            detectedCategory = refined.style_preset || backendCat;
+          const enhanced = await api.enhancePrompt(textToUse, selectedStyle, selectedCategory);
+          if (enhanced && enhanced.enhanced_positive_prompt) {
+            finalPrompt = enhanced.enhanced_positive_prompt;
+            finalNegative = enhanced.enhanced_negative_prompt || customNegativePrompt;
+            detectedSubject = enhanced.detected_subject || textToUse;
+            detectedCategory = enhanced.detected_domain || backendCat;
             setCustomOptimizedPrompt(finalPrompt);
             setCustomNegativePrompt(finalNegative);
           }
         } catch (e) {
-          console.warn('Background prompt optimization fallback to direct prompt', e);
+          try {
+            const refined = await api.refinePrompt(textToUse, selectedStyle, backendCat);
+            if (refined && refined.full_positive_prompt) {
+              finalPrompt = refined.full_positive_prompt;
+              finalNegative = refined.negative_prompt;
+              detectedSubject = refined.detected_objects?.join(', ') || textToUse;
+              detectedCategory = refined.style_preset || backendCat;
+              setCustomOptimizedPrompt(finalPrompt);
+              setCustomNegativePrompt(finalNegative);
+            }
+          } catch (e2) {
+            console.warn('Background prompt enhancement fallback to direct prompt', e2);
+          }
         }
       }
 

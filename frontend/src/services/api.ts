@@ -62,6 +62,20 @@ export const api = {
   },
 
   // AI Pipeline & Prompts
+  async enhancePrompt(prompt: string, visualStyle?: string, category?: string): Promise<any> {
+    const res = await fetch(`${API_BASE}/prompts/enhance`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        prompt: prompt,
+        visual_style: visualStyle,
+        category: category
+      })
+    });
+    if (!res.ok) throw new Error('Failed to enhance prompt');
+    return res.json();
+  },
+
   async understandTask(prompt: string, category?: string): Promise<TaskUnderstanding> {
     const res = await fetch(`${API_BASE}/prompts/understand`, {
       method: 'POST',

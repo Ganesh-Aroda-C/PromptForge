@@ -63,6 +63,21 @@ class ImageGenerationAgent:
 
         generations: List[GeneratedImageItem] = []
         is_vector = vector_engine.is_vector_candidate(user_prompt)
+
+        # Automatic intelligent prompt enhancement if enabled and prompt is short description
+        if getattr(request, "enhance_prompt", True) and not is_vector and len(user_prompt.split()) < 35:
+            try:
+                from backend.app.agents.prompt_enhancer import prompt_enhancement_engine
+                enh = prompt_enhancement_engine.enhance(user_prompt)
+                user_prompt = enh.enhanced_positive_prompt
+                if not negative_prompt:
+                    negative_prompt = enh.enhanced_negative_prompt
+                else:
+                    negative_prompt = f"{negative_prompt}, {enh.enhanced_negative_prompt}"
+                print(f"[ImageGenerationAgent] Enhanced prompt into {len(user_prompt.split())} tokens; negative prompt populated.")
+            except Exception as e:
+                print(f"[ImageGenerationAgent] Prompt enhancement note: {e}")
+
         is_comfy_available = comfyui_service.is_server_running()
 
         for i in range(num_images):
